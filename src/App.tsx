@@ -1,14 +1,11 @@
-function App() {
- 
+import Login from "./pages/Login";
 
+function App() {
   return (
     <>
-    <div>
-<h1 className='text-red-500'>OLasasA</h1>
-    </div>
-     
+      <Login/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
