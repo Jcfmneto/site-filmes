@@ -1,9 +1,15 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
-export const NavLinks = () => {
-  const items = [{ label: "Get Started", path: "/login" }];
+export interface NavLinkItem {
+  label: string;
+  path: string;
+}
 
+interface NavLinksProps {
+  items?: NavLinkItem[];
+}
+
+export default function NavLinks({ items = [{ label: "Get Started", path: "/login" }] }: NavLinksProps) {
   return (
     <ul className="flex flex-col sm:flex-row items-start sm:items-center gap-2 font-medium">
       {items.map(({ label, path }) => (
@@ -18,29 +24,4 @@ export const NavLinks = () => {
       ))}
     </ul>
   );
-};
-
-const NavHamburger = () => {
-  const [openMenu, setOpenMenu] = useState(false);
-
-  return (
-    <div className="sm:hidden">
-      <button
-        className="text-white text-2xl hover:cursor-pointer"
-        aria-label="Abrir menu"
-        type="button"
-        onClick={() => setOpenMenu(!openMenu)}
-      >
-        ☰
-      </button>
-
-      {openMenu && (
-        <div className=" absolute w-screen flex flex-col items-center bg-gray-950 p-5 left-0 top-full">
-          <NavLinks />
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default NavHamburger;
+}
