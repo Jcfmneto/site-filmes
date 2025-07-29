@@ -1,10 +1,17 @@
 import SearchIcon from "@heroicons/react/24/solid/MagnifyingGlassIcon"
+import { useEffect, useRef } from "react"
 
 const SearchInput = () => {
+  const inputRef = useRef(null);
+
+  useEffect(() => {})
+
+
   return (
     <form className="flex items-center justify-between border border-white rounded overflow-hidden">
       <input
         type="text"
+        ref={inputRef}
         placeholder="Search movies"
         className="flex-1  min-w-0  max-w-4xl bg-transparent text-white border-none focus:outline-none
           text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl

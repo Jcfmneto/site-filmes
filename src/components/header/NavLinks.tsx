@@ -9,7 +9,9 @@ interface NavLinksProps {
   items?: NavLinkItem[];
 }
 
-export default function NavLinks({ items = [{ label: "Get Started", path: "/login" }] }: NavLinksProps) {
+export default function NavLinks({
+  items = [{ label: "Get Started", path: "/login" }],
+}: NavLinksProps) {
   return (
     <ul className="flex flex-col sm:flex-row items-start sm:items-center gap-2 font-medium">
       {items.map(({ label, path }) => (

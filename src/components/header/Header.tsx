@@ -1,7 +1,7 @@
 import Logo from "./Logo";
 import SearchInput from "./SearchInput";
-import NavHamburger from "./NavHamburger"; 
-import NavLinks from "./NavLinks";        
+import NavHamburger from "./NavHamburger";
+import NavLinks from "./NavLinks";
 
 const navItems = [
   { label: "Home", path: "/" },
@@ -18,7 +18,10 @@ const Header = () => {
         <SearchInput />
       </div>
 
-      <nav className="flex items-center gap-6 flex-shrink-0" aria-label="Menu principal">
+      <nav
+        className="flex items-center gap-6 flex-shrink-0"
+        aria-label="Menu principal"
+      >
         <div className="hidden sm:flex">
           <NavLinks items={navItems} />
         </div>
