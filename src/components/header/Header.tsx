@@ -4,9 +4,7 @@ import NavHamburger from "./NavHamburger";
 import NavLinks from "./NavLinks";
 
 const navItems = [
-  { label: "Home", path: "/" },
-  { label: "Sobre", path: "/about" },
-  { label: "Contato", path: "/contact" },
+  { label: "Get Started", path: "/login" },
 ];
 
 const Header = () => {
