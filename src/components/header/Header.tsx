@@ -1,23 +1,26 @@
-import NavLinks from "./NavLinks";
 import Logo from "./Logo";
 import SearchInput from "./SearchInput";
+import NavHamburger, { NavLinks } from "./NavLinks";
+
 const Header = () => {
   return (
-    <div className="bg-black min-h-screen">
-     <header className="bg-gray-950 shadow-lg flex items-center justify-between px-4 h-16  mx-auto w-full">
+    <header className="bg-gray-950 shadow-lg flex items-center justify-between px-4 py-2 w-full flex-nowrap relative">
       <Logo />
 
-      <div className="flex-1 mx-4">
+      <form role="search" className="flex-1 mx-2 sm:mx-4 shrink min-w-0">
         <SearchInput />
-      </div>
+      </form>
 
-      <div className="hidden sm:flex gap-6 flex-shrink-0">
-        <NavLinks />
-      </div>
+      <nav className="flex items-center gap-6 flex-shrink-0" aria-label="Menu principal">
+        <div className="hidden sm:flex">
+          <NavLinks />
+        </div>
 
-      <button className="sm:hidden text-white text-2xl hover:cursor-pointer">☰</button>
+        <div className="sm:hidden">
+          <NavHamburger />
+        </div>
+      </nav>
     </header>
-    </div>
   );
 };
 
