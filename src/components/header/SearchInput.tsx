@@ -8,6 +8,7 @@ const SearchInput = () => {
   const timeRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [results, setResults] = useState<Movie[]>([]);
   const [openSearch, setOpenSearch] = useState<boolean>(false);
+  
 
   const handleInput = (): void => {
     const query = inputRef.current?.value;
@@ -32,7 +33,7 @@ const SearchInput = () => {
         setResults([]);
         setOpenSearch(false);
       }
-    }, 1000);
+    }, 800);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -65,7 +66,7 @@ const SearchInput = () => {
         </form>
 
         <ul
-          className={`absolute left-0 right-0 z-10 mt-1 max-h-80 overflow-auto rounded bg-black transition-all ease-in duration-700 ${
+          className={`absolute left-0 right-0 z-10 mt-1 max-h-80 overflow-auto rounded bg-black transition-all ease-in duration-300 ${
             openSearch
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-[-20px] pointer-events-none"
@@ -74,7 +75,7 @@ const SearchInput = () => {
           {results.slice(0, 5).map((movie) => (
             <li
               key={movie.id}
-              className="py-2 text-gray-400 hover:bg-gray-800 transition-all duration-500 border-b border-gray-700"
+              className="py-2 text-gray-400 hover:bg-gray-800 hover:cursor-pointer transition-all duration-500 border-b border-gray-700"
             >
               <strong className="text-gray-200 p-2">{movie.title}</strong>
             </li>

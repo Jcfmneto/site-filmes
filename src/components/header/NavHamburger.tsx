@@ -2,6 +2,7 @@ import { useState } from "react";
 import NavLinks, { type NavLinkItem } from "./NavLinks";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import SearchInput from "./SearchInput";
 
 interface NavHamburgerProps {
   items: NavLinkItem[];
@@ -43,12 +44,16 @@ const NavHamburger = ({ items }: NavHamburgerProps) => {
       </button>
 
       <div
-        className={`absolute w-screen flex flex-col items-center bg-gray-950 p-5 left-0 top-full transition-all duration-300 ease-out transform ${
+        className={`absolute w-screen flex flex-col items-center gap-10 bg-gray-950 p-5 left-0 top-full transition-all duration-300 ease-out transform ${
           openMenu
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 -translate-y-5 pointer-events-none"
         }`}
       >
+        <div className="sm:hidden w-screen px-1.5">
+          <SearchInput />
+        </div>
+
         <NavLinks items={items} />
       </div>
     </div>
