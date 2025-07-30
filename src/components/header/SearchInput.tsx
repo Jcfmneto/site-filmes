@@ -21,9 +21,13 @@ const SearchInput = () => {
       if (query && query.trim() !== "") {
         try {
           const response = await tmdbApi.get("/search/movie", {
-            params: { query },
+            params: { query,
+              language: "pt-BR"
+             },
+            
           });
           setResults(response.data.results);
+          console.log(response.data.results)
           setOpenSearch(true);
         } catch (error) {
           console.error("Erro ao buscar filmes:", error);
