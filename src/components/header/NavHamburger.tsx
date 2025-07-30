@@ -4,14 +4,14 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 interface NavHamburgerProps {
-  items?: NavLinkItem[];
+  items: NavLinkItem[];
 }
 
 const NavHamburger = ({ items }: NavHamburgerProps) => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
   const [animate, setAnimate] = useState<boolean>(false);
 
-  const handleClick = () => {
+  const handleClick = (): void => {
     setAnimate(true);
     setTimeout(() => {
       setOpenMenu((prev) => !prev);

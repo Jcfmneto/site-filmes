@@ -1,9 +1,11 @@
 import Logo from "./Logo";
 import SearchInput from "./SearchInput";
 import NavHamburger from "./NavHamburger";
+import type { NavLinkItem } from "./NavLinks";
 
 
-const navItems = [{ label: "Get Started", path: "/login" }];
+
+const navItems: NavLinkItem[] = [{ label: "Get Started", path: "/login" }];
 
 const Header = () => {
   return (

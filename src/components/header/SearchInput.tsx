@@ -9,7 +9,7 @@ const SearchInput = () => {
   const [results, setResults] = useState<Movie[]>([]);
   const [openSearch, setOpenSearch] = useState<boolean>(false);
 
-  const handleInput = () => {
+  const handleInput = (): void => {
     const query = inputRef.current?.value;
 
     if (timeRef.current) {
