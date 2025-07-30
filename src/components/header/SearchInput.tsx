@@ -76,7 +76,7 @@ const SearchInput = () => {
               key={movie.id}
               className="py-2 text-gray-400 hover:bg-gray-800 transition-all duration-500 border-b border-gray-700"
             >
-              <strong className="text-gray-200">Título:</strong> {movie.title}
+              <strong className="text-gray-200 p-2">{movie.title}</strong>
             </li>
           ))}
         </ul>
