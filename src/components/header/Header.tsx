@@ -1,11 +1,9 @@
 import Logo from "./Logo";
 import SearchInput from "./SearchInput";
 import NavHamburger from "./NavHamburger";
-import NavLinks from "./NavLinks";
 
-const navItems = [
-  { label: "Get Started", path: "/login" },
-];
+
+const navItems = [{ label: "Get Started", path: "/login" }];
 
 const Header = () => {
   return (
@@ -20,13 +18,7 @@ const Header = () => {
         className="flex items-center gap-6 flex-shrink-0"
         aria-label="Menu principal"
       >
-        <div className="hidden sm:flex">
-          <NavLinks items={navItems} />
-        </div>
-
-        <div className="sm:hidden">
-          <NavHamburger items={navItems} />
-        </div>
+        <NavHamburger items={navItems} />
       </nav>
     </header>
   );

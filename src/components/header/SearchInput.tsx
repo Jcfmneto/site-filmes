@@ -65,18 +65,18 @@ const SearchInput = () => {
         </form>
 
         <ul
-          className={`absolute left-0 right-0 z-10 mt-1 max-h-60 overflow-auto rounded bg-black bg-opacity-80 transition-opacity duration-300 ${
+          className={`absolute left-0 right-0 z-10 mt-1 max-h-80 overflow-auto rounded bg-black transition-all ease-in duration-700 ${
             openSearch
               ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-[-10px] pointer-events-none"
+              : "opacity-0 translate-y-[-20px] pointer-events-none"
           }`}
         >
           {results.slice(0, 5).map((movie) => (
             <li
               key={movie.id}
-              className="px-4 py-2 border-b border-gray-600 last:border-b-0 text-white"
+              className="py-2 text-gray-400 hover:bg-gray-800 transition-all duration-500 border-b border-gray-700"
             >
-              <strong>Título:</strong> {movie.title}
+              <strong className="text-gray-200">Título:</strong> {movie.title}
             </li>
           ))}
         </ul>
@@ -86,4 +86,3 @@ const SearchInput = () => {
 };
 
 export default SearchInput;
-
