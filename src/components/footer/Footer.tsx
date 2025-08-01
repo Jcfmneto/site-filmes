@@ -1,16 +1,24 @@
-import React from 'react'
-import FooterTItle from './FooterTitle'
+import React from 'react';
+import FooterTitle from './FooterTitle';
+import Button from './Button';
+import Logo from '../header/Logo';
 
 const Footer = () => {
   return (
-    <footer className='bg-black h-40 relative'>
-      <div className='pt-2.5 absolute top-[11%] bottom-[11%] left-[12.5%] right-[12.5%] flex flex-col items-center'>
-          <FooterTItle/>
+    <footer className="bg-gray-950 text-gray-400 px-8 py-12 w-full">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
+        <div className="w-full  flex justify-center sm:justify-start mb-4">
+          <Logo />
+        </div>
+        <span className='border-b-2 mb-4 border-gray-500'><FooterTitle/></span>
 
+        <div className="flex gap-4 mb-10">
+          <Button />
+        </div>
       </div>
-    
     </footer>
-  )
-}
 
-export default Footer
+  );
+};
+
+export default Footer;
