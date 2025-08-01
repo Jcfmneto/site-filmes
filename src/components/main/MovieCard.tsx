@@ -1,15 +1,42 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { imageUrl } from '../../services/api'
+import { tmdbApiMovies } from '../../services/api';
+import type { Movie } from '../../types/Movie';
+import type { IApiResponse } from '../../types/IApiResponse';
 
 const MovieCard = () => {
+
+    const [movies, setMovies] = useState<Movie[]>([])
+
+
+    useEffect(() => {
+        tmdbApiMovies.get<IApiResponse<Movie>>('', {
+            params: {
+                sort_by: 'popularity.desc',
+                page: 1,
+                imageUrl: true
+
+            }
+        })
+            .then((response) => {
+                    const formatado = response.data.results.slice(0, 9)
+                setMovies(formatado);
+                console.log(response)
+            })
+            .catch((error) => {
+                console.error('Erro ao buscar filmes:', error);
+            });
+    }, []);
+
     return (
-        <div className='flex flex-wrap justify-between items-center'>
-
-            <img className="max-w-full max-h-full  rounded-2xl" src={`${imageUrl}/omoMXT3Z7XrQwRZ2OGJGNWbdeEl.jpg`} />
-
-        </div>
-
-    )
+     <>
+            {movies.map(movie => (
+                <div key={movie.id}>
+                    <img src={`${imageUrl}/${movie.poster_path}}`} alt={`Imagem do filme ${movie.title}`} />
+                </div>
+            )
+            )}
+   </> )
 }
 
 export default MovieCard
