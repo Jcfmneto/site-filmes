@@ -1,6 +1,6 @@
 import SearchIcon from "@heroicons/react/24/solid/MagnifyingGlassIcon";
 import { useState, useRef } from "react";
-import { tmdbApi } from "../../services/api";
+import { tmdbApiSearch } from "../../services/api";
 import type { Movie } from "../../types/Movie";
 import type { IApiResponse } from "../../types/IApiResponse";
 
@@ -20,7 +20,7 @@ const SearchInput = () => {
     timeRef.current = setTimeout(async () => {
       if (query && query.trim() !== "") {
         try {
-          const response = await tmdbApi.get<IApiResponse<Movie>>("/search/movie", {
+          const response = await tmdbApiSearch.get<IApiResponse<Movie>>("/search/movie", {
             params: { query, language: "pt-BR" },
           });
           console.log(response)
