@@ -2,13 +2,13 @@ import SearchIcon from "@heroicons/react/24/solid/MagnifyingGlassIcon";
 import { useState, useRef } from "react";
 import { tmdbApi } from "../../services/api";
 import type { Movie } from "../../types/Movie";
+import type { IApiResponse } from "../../types/IApiResponse";
 
 const SearchInput = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const timeRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [results, setResults] = useState<Movie[]>([]);
   const [openSearch, setOpenSearch] = useState<boolean>(false);
-  
 
   const handleInput = (): void => {
     const query = inputRef.current?.value;
@@ -20,14 +20,11 @@ const SearchInput = () => {
     timeRef.current = setTimeout(async () => {
       if (query && query.trim() !== "") {
         try {
-          const response = await tmdbApi.get("/search/movie", {
-            params: { query,
-              language: "pt-BR"
-             },
-            
+          const response = await tmdbApi.get<IApiResponse<Movie>>("/search/movie", {
+            params: { query, language: "pt-BR" },
           });
+          console.log(response)
           setResults(response.data.results);
-          console.log(response.data.results)
           setOpenSearch(true);
         } catch (error) {
           console.error("Erro ao buscar filmes:", error);
@@ -45,7 +42,6 @@ const SearchInput = () => {
   };
 
   return (
-    <>
       <div className="relative max-w-4xl mx-auto">
         <form
           className="flex items-center justify-between border border-white rounded overflow-hidden"
@@ -86,7 +82,6 @@ const SearchInput = () => {
           ))}
         </ul>
       </div>
-    </>
   );
 };
 
