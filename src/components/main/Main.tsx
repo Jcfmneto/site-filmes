@@ -6,8 +6,8 @@ const Main = () => {
 
 
   return (
-    <main className="bg-gray-900 overflow-x-hidden w-full">
-      <div className="pt-16 text-center font-bold text-gray-400 px-4">
+    <main className="bg-gray-900 overflow-x-hidden w-full pt-24">
+      <div className="pt-16 pb-12 text-center font-bold text-gray-400 px-4">
         <h1>Most Popular Movies</h1>
       </div>
 

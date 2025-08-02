@@ -7,6 +7,6 @@ export interface Movie {
     genre_ids: number[]
     popularity: number;
     video: boolean;
-    release_date: Date;
+    release_date: string;
     
 }
