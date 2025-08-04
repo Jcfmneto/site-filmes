@@ -29,7 +29,7 @@ const Carousel = () => {
 
      
     return (
-        <div className=' relative flex overflow-auto'>
+        <div className=' relative flex overflow-hidden'>
             {carousel.map(movie => (
                 <div key={movie.id} className="w-full flex-shrink-0 flex justify-center items-center px-4">
 
