@@ -3,7 +3,7 @@ import SearchInput from "./SearchInput";
 import NavHamburger from "./NavHamburger";
 import type { NavLinkItem } from "./NavLinks";
 
-const navItems: NavLinkItem[] = [{ label: "Get Started", path: "/login" }];
+const navItems: NavLinkItem[] = [{ label: "Login", path: "/login" }, {label: "Register", path: "/register"}];
 
 const Header = () => {
   return (

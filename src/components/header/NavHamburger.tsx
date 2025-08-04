@@ -53,8 +53,8 @@ const NavHamburger = ({ items }: NavHamburgerProps) => {
         <div className="sm:hidden w-screen px-1.5">
           <SearchInput />
         </div>
-
-        <NavLinks items={items} />
+           <NavLinks items={items} />
+       
       </div>
     </div>
   );

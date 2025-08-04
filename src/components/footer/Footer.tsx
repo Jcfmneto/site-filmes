@@ -13,7 +13,8 @@ const Footer = () => {
         <span className='border-b-2 mb-4 border-gray-500 sm:justify-start'><FooterTitle/></span>
 
         <div className="flex gap-4 mb-10">
-          <Button />
+          <Button path='/login'>Login</Button>
+          <Button path='/register'>Register</Button>
         </div>
       </div>
     </footer>

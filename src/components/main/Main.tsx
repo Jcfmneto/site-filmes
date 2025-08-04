@@ -7,11 +7,11 @@ const Main = () => {
 
   return (
     <main className="bg-gray-900 overflow-x-hidden w-full pt-24">
-      <div className="pt-16 pb-12 text-center font-bold text-gray-400 px-4">
+      <div className="pt-20 sm:pt-16 pb-12 text-center font-bold text-gray-400 px-4">
         <h1>Most Popular Movies</h1>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4 mb-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4 mb-4 px-3">
         <MovieCard />
       </div>
     </main>
