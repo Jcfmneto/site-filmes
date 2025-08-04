@@ -43,3 +43,4 @@ const MovieCardItem = ({ movie }: MovieCardItemProps) => {
 }
 
 export default MovieCardItem
+   
