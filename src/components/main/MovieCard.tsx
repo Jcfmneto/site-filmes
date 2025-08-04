@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { tmdbApiMovies } from '../../services/api'
-import type { Movie } from '../../types/Movie'
-import type { IApiResponse } from '../../types/IApiResponse'
+import type { Movie } from '../../@types/movie'
+import type { IApiResponse } from '../../@types/apiResponse'
 import MovieCardItem from './MovieCardItem'
 
 const MovieCard = () => {

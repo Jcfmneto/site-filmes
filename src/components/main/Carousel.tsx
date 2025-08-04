@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import type { IApiResponse } from '../../types/IApiResponse'
+import { useEffect, useState } from 'react'
+import type { IApiResponse } from '../../@types/apiResponse'
 import { tmdbApiMovies } from '../../services/api'
-import type { Movie } from '../../types/Movie'
+import type { Movie } from '../../@types/movie'
 import MovieCardItem from './MovieCardItem'
 
 const Carousel = () => {

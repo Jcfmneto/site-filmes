@@ -1,8 +1,8 @@
 import SearchIcon from "@heroicons/react/24/solid/MagnifyingGlassIcon";
 import { useState, useRef } from "react";
 import { tmdbApiSearch } from "../../services/api";
-import type { Movie } from "../../types/Movie";
-import type { IApiResponse } from "../../types/IApiResponse";
+import type { Movie } from "../../@types/movie";
+import type { IApiResponse } from "../../@types/apiResponse";
 
 const SearchInput = () => {
   const inputRef = useRef<HTMLInputElement | null>(null);
