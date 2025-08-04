@@ -1,18 +1,13 @@
 import { useEffect, useState } from 'react'
-import type { IApiResponse } from '../../@types/apiResponse'
-import { tmdbApiMovies } from '../../services/api'
-import type { Movie } from '../../@types/movie'
+import api from '../../services/api'
 import MovieCardItem from './MovieCardItem'
 
 const Carousel = () => {
-
     const [carousel, setCarousel] = useState<Movie[]>([])
-    const [index, setIndex] = useState(0)
-
 
     useEffect(() => {
-        tmdbApiMovies
-            .get<IApiResponse<Movie>>('', {
+        api
+            .get<IApiResponse<Movie>>('/discover/movie', {
                 params: {
                     sort_by: 'popularity.desc',
                     page: 1,
@@ -27,14 +22,11 @@ const Carousel = () => {
             })
     }, [])
 
-     
     return (
-        <div className=' relative flex overflow-hidden'>
-            {carousel.map(movie => (
+        <div className="relative flex overflow-hidden">
+            {carousel.map((movie) => (
                 <div key={movie.id} className="w-full flex-shrink-0 flex justify-center items-center px-4">
-
                     <MovieCardItem movie={movie} />
-
                 </div>
             ))}
         </div>

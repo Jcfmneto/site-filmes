@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react'
-import { tmdbApiMovies } from '../../services/api'
-import type { Movie } from '../../@types/movie'
-import type { IApiResponse } from '../../@types/apiResponse'
+import tmdbApiSearch from '../../services/api'
 import MovieCardItem from './MovieCardItem'
 
 const MovieCard = () => {
   const [movies, setMovies] = useState<Movie[]>([])
 
   useEffect(() => {
-    tmdbApiMovies
-      .get<IApiResponse<Movie>>('', {
+    tmdbApiSearch
+      .get<IApiResponse<Movie>>('/discover/movie', {
         params: {
           sort_by: 'popularity.desc',
           page: 1,

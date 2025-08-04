@@ -1,9 +1,4 @@
-import type { Movie } from '../../@types/movie'
-import { imageUrl } from '../../services/api'
-
-interface MovieCardItemProps {
-  movie: Movie
-}
+import imageUrl from '../../services/imageUrl'
 
 const MovieCardItem = ({ movie }: MovieCardItemProps) => {
   return (
@@ -29,12 +24,8 @@ const MovieCardItem = ({ movie }: MovieCardItemProps) => {
 
           <div className="flex flex-col flex-grow">
             <h3 className="text-black font-bold text-lg">{movie.title}</h3>
-            <span className="text-gray-500 text-sm mb-2">
-              {movie.release_date}
-            </span>
-            <p className="text-gray-600 text-sm line-clamp-3">
-              {movie.overview}
-            </p>
+            <span className="text-gray-500 text-sm mb-2">{movie.release_date}</span>
+            <p className="text-gray-600 text-sm line-clamp-3">{movie.overview}</p>
           </div>
         </div>
       </div>
@@ -43,4 +34,3 @@ const MovieCardItem = ({ movie }: MovieCardItemProps) => {
 }
 
 export default MovieCardItem
-   
