@@ -7,7 +7,7 @@ const MovieCard = () => {
 
   useEffect(() => {
     tmdbApiSearch
-      .get<IApiResponse<Movie>>('/discover/movie', {
+      .get<apiResponse<Movie>>('/discover/movie', {
         params: {
           sort_by: 'popularity.desc',
           page: 1,

@@ -1,7 +1,6 @@
-import React from 'react';
-import FooterTitle from './FooterTitle';
-import Button from './Button';
-import Logo from '../header/Logo';
+import FooterTitle from './FooterTitle'
+import Button from './Button'
+import Logo from '../header/Logo'
 
 const Footer = () => {
   return (
@@ -10,16 +9,17 @@ const Footer = () => {
         <div className="w-full  flex justify-center mb-4">
           <Logo />
         </div>
-        <span className='border-b-2 mb-4 border-gray-500 sm:justify-start'><FooterTitle/></span>
+        <span className="border-b-2 mb-4 border-gray-500 sm:justify-start">
+          <FooterTitle />
+        </span>
 
         <div className="flex gap-4 mb-10">
-          <Button path='/login'>Login</Button>
-          <Button path='/register'>Register</Button>
+          <Button path="/login">Login</Button>
+          <Button path="/register">Register</Button>
         </div>
       </div>
     </footer>
+  )
+}
 
-  );
-};
-
-export default Footer;
+export default Footer

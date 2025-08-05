@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { CameraIcon } from "@heroicons/react/24/outline";
+import { Link } from 'react-router-dom'
+import { CameraIcon } from '@heroicons/react/24/outline'
 
 const Logo = () => {
   return (
@@ -10,7 +10,7 @@ const Logo = () => {
       <CameraIcon className="h-5 w-5 text-blue-400 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 hover:text-blue-200" />
       Movies
     </Link>
-  );
-};
+  )
+}
 
-export default Logo;
+export default Logo

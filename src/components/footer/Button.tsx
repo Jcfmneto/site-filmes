@@ -1,21 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-interface FooterButtonProps {
-  path?: string;
-  className?: string;
-  children?: React.ReactNode;
-}
-
-const baseClasses = "bg-transparent text-white border-2 border-gray-500 px-6 py-2 rounded hover:bg-gray-600 transition hover:cursor-pointer duration-500";
+const baseClasses =
+  'bg-transparent text-white border-2 border-gray-500 px-6 py-2 rounded hover:bg-gray-600 transition hover:cursor-pointer duration-500'
 
 const Button = ({ path = '/login', className = '', children }: FooterButtonProps) => {
   return (
     <Link to={path}>
-      <button className={`${baseClasses} ${className}`}>
-        {children}
-      </button>
+      <button className={`${baseClasses} ${className}`}>{children}</button>
     </Link>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

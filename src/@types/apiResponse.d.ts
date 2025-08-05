@@ -1,6 +1,6 @@
-export interface IApiResponse<T> {
-  page: number;
-  results: T[];
-  total_pages: number;
-  total_results: number;
+interface apiResponse<T> {
+  page: number
+  results: T[]
+  total_pages: number
+  total_results: number
 }

@@ -1,13 +1,4 @@
-import { Link } from "react-router-dom";
-
-export interface NavLinkItem {
-  label: string;
-  path: string;
-}
-
-interface NavLinksProps {
-  items: NavLinkItem[];
-}
+import { Link } from 'react-router-dom'
 
 export default function NavLinks({ items }: NavLinksProps) {
   return (
@@ -25,5 +16,5 @@ export default function NavLinks({ items }: NavLinksProps) {
         ))}
       </ul>
     </nav>
-  );
+  )
 }
