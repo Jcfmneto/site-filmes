@@ -5,6 +5,7 @@ import imageUrl from '../../services/imageUrl'
 import Carousel from '../../components/main/Carousel'
 import MovieCardItem from '../../components/main/MovieCardItem'
 import { StarIcon } from '@heroicons/react/24/outline'
+import FavButton from '../../components/util/FavButton'
 
 const MovieInfo = () => {
   const { id } = useParams()
@@ -14,6 +15,10 @@ const MovieInfo = () => {
 
   useEffect(() => {
     if (!id) return
+
+    setMovie(null)
+    setCollectionMovies([])
+    setGenreList([])
 
     api
       .get<Movie>(`/movie/${id}`)
@@ -59,6 +64,7 @@ const MovieInfo = () => {
 
               <span>{movie?.release_date}</span>
               <span>{movie?.original_language?.toUpperCase()}</span>
+              <FavButton />
             </div>
           </div>
         </div>
