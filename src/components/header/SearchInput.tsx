@@ -1,6 +1,7 @@
 import SearchIcon from '@heroicons/react/24/solid/MagnifyingGlassIcon'
 import { useState, useRef } from 'react'
 import api from '../../services/api'
+import { Link } from 'react-router-dom'
 
 const SearchInput = () => {
   const inputRef = useRef<HTMLInputElement | null>(null)
@@ -21,7 +22,6 @@ const SearchInput = () => {
           const response = await api.get<apiResponse<Movie>>('/search/movie', {
             params: { query },
           })
-          console.log(response)
           setResults(response.data.results)
           setOpenSearch(true)
         } catch (error) {
@@ -68,12 +68,18 @@ const SearchInput = () => {
         }`}
       >
         {results.slice(0, 5).map((movie) => (
-          <li
-            key={movie.id}
-            className="py-2 text-gray-400 hover:bg-gray-800 hover:cursor-pointer transition-all duration-500 border-b border-gray-700"
-          >
-            <strong className="text-gray-200 p-2">{movie.title}</strong>
-          </li>
+          <Link to={`/movies/${movie.id}`} key={movie.id}>
+            <li
+              className="py-2 text-gray-400 hover:bg-gray-800 hover:cursor-pointer transition-all duration-500 border-b border-gray-700"
+              onClick={() => {
+                setOpenSearch(false)
+                // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+                inputRef.current && (inputRef.current.value = '')
+              }}
+            >
+              <strong className="text-gray-200 p-2">{movie.title}</strong>
+            </li>
+          </Link>
         ))}
       </ul>
     </div>

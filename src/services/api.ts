@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-const tmdbApiSearch = axios.create({
+const tmdbApi = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: {
     Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
   },
 })
 
-export default tmdbApiSearch
+export default tmdbApi
