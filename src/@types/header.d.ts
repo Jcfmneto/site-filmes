@@ -1,12 +1,12 @@
-interface NavLinkItem {
+type NavLinkItem = {
   label: string
   path: string
 }
 
-interface NavHamburgerProps {
+type NavHamburgerProps = {
   items: NavLinkItem[]
 }
 
-interface NavLinksProps {
+type NavLinksProps = {
   items: NavLinkItem[]
 }

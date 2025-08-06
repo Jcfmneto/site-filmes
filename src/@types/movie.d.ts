@@ -1,42 +1,67 @@
-interface BelongsToCollection {
+type BelongsToCollection = {
   id: number
   name: string
   poster_path: string | null
   backdrop_path: string | null
 }
 
-interface Genre {
+type CarouselProps = {
+  withGenres: number | null
+}
+
+type Genre = {
   id: number
   name: string
 }
 
-interface Movie {
+type ProductionCompany = {
+  id: number
+  name: string
+  logo_path: string | null
+  origin_country: string
+}
+
+type ProductionCountry = {
+  iso_3166_1: string
+  name: string
+}
+
+type SpokenLanguage = {
+  english_name: string
+  iso_639_1: string
+  name: string
+}
+
+type Movie = {
   id: number
   title: string
+  original_title: string
   poster_path: string | null
+  backdrop_path: string | null
   overview: string
+  tagline?: string | null
   adult: boolean
-  genre_ids: number[]
+  genre_ids?: number[]
   genres?: Genre[]
   popularity: number
-  video: boolean
+  vote_average: number
+  vote_count: number
   release_date: string
-  backdrop_path?: string | null
+  original_language: string
+  video: boolean
   belongs_to_collection?: BelongsToCollection | null
   budget?: number
-  homepage?: string | null
-  imdb_id?: string | null
-  origin_country?: string[]
-  original_language?: string
-  original_title?: string
   revenue?: number
   runtime?: number
   status?: string
-  tagline?: string | null
-  vote_average?: number
-  vote_count?: number
+  homepage?: string
+  imdb_id?: string
+  origin_country?: string[]
+  production_companies?: ProductionCompany[]
+  production_countries?: ProductionCountry[]
+  spoken_languages?: SpokenLanguage[]
 }
 
-interface MovieCardItemProps {
+type MovieCardItemProps = {
   movie: Movie
 }

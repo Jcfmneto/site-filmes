@@ -1,4 +1,4 @@
-interface apiResponse<T> {
+type apiResponse<T> = {
   page: number
   results: T[]
   total_pages: number

@@ -1,14 +1,5 @@
-interface Genre {
-  id: number
-  name: string
-}
-
-interface GenreSelectorProps {
+type GenreSelectorProps = {
   genres: Genre[]
   selectedGenre: number | null
   onSelect: (genreId: number | null) => void
-}
-
-type CarouselProps = {
-  withGenres: number | null
 }

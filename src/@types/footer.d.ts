@@ -1,9 +1,9 @@
-interface FooterButtonProps {
+type FooterButtonProps = {
   path?: string
   className?: string
   children?: React.ReactNode
 }
 
-interface IFooterTitleProps {
+type IFooterTitleProps = {
   text?: string
 }
