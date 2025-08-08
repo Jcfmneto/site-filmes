@@ -64,7 +64,7 @@ const MovieInfo = () => {
 
               <span>{movie?.release_date}</span>
               <span>{movie?.original_language?.toUpperCase()}</span>
-              <FavButton />
+              {movie?.id && <FavButton id={movie?.id} />}
             </div>
           </div>
         </div>

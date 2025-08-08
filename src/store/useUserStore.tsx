@@ -5,9 +5,11 @@ const useUserStore = create<UserStore>((set) => ({
   isLoggedIn: false,
   favorites: [],
   setUser: (user) => set({ user }),
-  setFavorites: (movie) =>
+  setFavorites: (movieId: number) =>
     set((state) => ({
-      favorites: [...state.favorites, movie],
+      favorites: state.favorites.includes(movieId)
+        ? state.favorites.filter((id) => id !== movieId)
+        : [...state.favorites, movieId],
     })),
   setLoggedIn: (status) => set({ isLoggedIn: status }),
   reset: () => set({ user: null, isLoggedIn: false, favorites: [] }),

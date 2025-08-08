@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 const Register = () => {
   const navigate = useNavigate()
   const handleRegister = (data: User) => {
-    const newUser = {
+    const newUser: User = {
       username: data.username,
       email: data.email,
       password: data.password,
