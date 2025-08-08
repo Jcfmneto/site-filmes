@@ -10,7 +10,7 @@ const MovieCard = () => {
       .get<apiResponse<Movie>>('/discover/movie', {
         params: {
           sort_by: 'popularity.desc',
-          page: 1,
+          page: 3,
         },
       })
       .then((response) => {

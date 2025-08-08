@@ -3,7 +3,7 @@ import imageUrl from '../../services/imageUrl'
 
 const MovieCardItem = ({ movie }: MovieCardItemProps) => {
   return (
-    <Link to={`/movies/${movie.id}`}>
+    <Link to={`/movie/${movie.id}`}>
       <div
         key={movie.id}
         className="relative w-full max-w-xs sm:max-w-sm md:max-w-md h-[500px] rounded-2xl overflow-hidden shadow-xl text-shadow-zinc-950 mx-auto transition-all duration-300 hover:scale-102"

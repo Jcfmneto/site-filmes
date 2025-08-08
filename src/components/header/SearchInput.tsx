@@ -68,7 +68,7 @@ const SearchInput = () => {
         }`}
       >
         {results.slice(0, 5).map((movie) => (
-          <Link to={`/movies/${movie.id}`} key={movie.id}>
+          <Link to={`/movie/${movie.id}`} key={movie.id}>
             <li
               className="py-2 text-gray-400 hover:bg-gray-800 hover:cursor-pointer transition-all duration-500 border-b border-gray-700"
               onClick={() => {
