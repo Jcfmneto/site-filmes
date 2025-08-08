@@ -1,4 +1,3 @@
-import React from 'react'
 import Header from '../../components/header/Header'
 import MovieInfo from './MovieInfo'
 import Footer from '../../components/footer/Footer'
