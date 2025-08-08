@@ -40,7 +40,7 @@ const SearchInput = () => {
   }
 
   return (
-    <div className="relative max-w-4xl mx-auto">
+    <div className="relative max-w-4xl m-auto">
       <form
         className="flex items-center justify-between border border-white rounded overflow-hidden"
         onSubmit={handleSubmit}

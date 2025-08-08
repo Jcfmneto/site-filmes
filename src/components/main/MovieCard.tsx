@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import tmdbApiSearch from '../../services/api'
 import MovieCardItem from './MovieCardItem'
-import { Link } from 'react-router-dom'
 
 const MovieCard = () => {
   const [movies, setMovies] = useState<Movie[]>([])
@@ -26,9 +25,7 @@ const MovieCard = () => {
   return (
     <>
       {movies.map((movie) => (
-        <Link to={`/movies/${movie.id}`} key={movie.id}>
-          <MovieCardItem key={movie.id} movie={movie} />
-        </Link>
+        <MovieCardItem key={movie.id} movie={movie} />
       ))}
     </>
   )
