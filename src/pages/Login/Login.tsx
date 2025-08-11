@@ -10,9 +10,14 @@ const Login = () => {
   const setUser = useUserStore((state) => state.setUser)
   const setLoggedIn = useUserStore((state) => state.setLoggedIn)
 
-  const handleLogin = (data: User) => {
+  const handleLogin = (data: FormData) => {
     const savedUsers = localStorage.getItem('users')
     const users = savedUsers ? JSON.parse(savedUsers) : {}
+
+    if (!data.email || !data.password) {
+      alert('Por favor, preencha email e senha.')
+      return
+    }
 
     const user = users[data.email]
 

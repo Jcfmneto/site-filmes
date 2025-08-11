@@ -4,6 +4,7 @@ import Details from './pages/Details/Details'
 import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import Favorites from './pages/Favorites/Favorites'
+import Account from './pages/Account/Account'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/favorites" element={<Favorites />} />
+      <Route path="/account" element={<Account />} />
     </Routes>
   )
 }

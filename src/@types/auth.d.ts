@@ -1,19 +1,19 @@
 interface AuthCardProps {
   title: string
   children: ReactNode
-  footerText: string
-  footerLinkText: string
-  footerLinkHref: string
+  footerText?: string
+  footerLinkText?: string
+  footerLinkHref?: string
 }
 
 interface AuthFormProps {
   onSubmit: (data: FormData) => void
   isSubmitting: boolean
-  type: 'login' | 'register'
+  type: 'login' | 'register' | 'changeCredentials'
 }
 
 interface FormData {
-  username: string
-  email: string
-  password: string
+  username?: string
+  email?: string
+  password?: string
 }

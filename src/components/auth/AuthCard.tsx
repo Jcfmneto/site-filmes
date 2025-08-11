@@ -16,12 +16,14 @@ const AuthCard = ({
         {children}
         <p className="text-center text-sm text-gray-400 mt-6">
           {footerText}{' '}
-          <span
-            onClick={() => navigate(footerLinkHref)}
-            className="underline cursor-pointer hover:text-white"
-          >
-            {footerLinkText}
-          </span>
+          {footerLinkHref && footerLinkHref && (
+            <span
+              onClick={() => navigate(footerLinkHref)}
+              className="underline cursor-pointer hover:text-white"
+            >
+              {footerLinkText}
+            </span>
+          )}
         </p>
       </div>
     </div>

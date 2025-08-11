@@ -6,8 +6,14 @@ import { useNavigate } from 'react-router-dom'
 
 const Register = () => {
   const navigate = useNavigate()
-  const handleRegister = (data: User) => {
-    const newUser: User = {
+
+  const handleRegister = (data: FormData) => {
+    if (!data.username || !data.email || !data.password) {
+      alert('Preencha todos os campos!')
+      return
+    }
+
+    const newUser = {
       username: data.username,
       email: data.email,
       password: data.password,
