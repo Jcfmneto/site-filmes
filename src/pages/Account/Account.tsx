@@ -2,6 +2,7 @@ import AuthCard from '../../components/auth/AuthCard'
 import AuthForm from '../../components/auth/AuthForm'
 import AuthHeader from '../../components/auth/AuthHeader'
 import useUserStore from '../../store/useUserStore'
+import DeleteAccountButton from './DeleteAccountButton'
 
 const Account = () => {
   const user = useUserStore((state) => state.user)
@@ -44,6 +45,7 @@ const Account = () => {
           isSubmitting={false}
           type="changeCredentials"
         />
+        <DeleteAccountButton />
       </AuthCard>
     </div>
   )

@@ -5,6 +5,8 @@ import Login from './pages/Login/Login'
 import Register from './pages/Register/Register'
 import Favorites from './pages/Favorites/Favorites'
 import Account from './pages/Account/Account'
+import PrivateRoute from './components/util/PrivateRoute'
+import NotFoundPage from './pages/404/NotFoundPage'
 
 function App() {
   return (
@@ -13,8 +15,23 @@ function App() {
       <Route path="/movie/:id" element={<Details />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/favorites" element={<Favorites />} />
-      <Route path="/account" element={<Account />} />
+      <Route
+        path="/favorites"
+        element={
+          <PrivateRoute>
+            <Favorites />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/account"
+        element={
+          <PrivateRoute>
+            <Account />
+          </PrivateRoute>
+        }
+      />
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   )
 }
