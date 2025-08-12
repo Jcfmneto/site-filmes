@@ -4,23 +4,29 @@ import useUserStore from '../../store/useUserStore'
 import { useNavigate } from 'react-router-dom'
 
 const FavoriteList = () => {
-  const favorites = useUserStore((state) => state.favorites)
-  const toggleFavorite = useUserStore((state) => state.setFavorites)
+  const userEmail = useUserStore((state) => state.user?.email)
   const navigate = useNavigate()
 
+  const [favorites, setFavorites] = useState<number[]>([])
   const [favMoviesDetails, setFavMoviesDetails] = useState<Movie[]>([])
   const [searchQuery, setSearchQuery] = useState('')
 
-  const filteredMovies = favMoviesDetails.filter((movie) =>
-    movie.title.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  useEffect(() => {
+    if (!userEmail) {
+      setFavorites([])
+      return
+    }
 
-  const [currentPage, setCurrentPage] = useState(1)
-  const ITEMS_PER_PAGE = 5
+    const savedUsers = localStorage.getItem('users')
+    if (!savedUsers) {
+      setFavorites([])
+      return
+    }
 
-  const totalPages = Math.ceil(filteredMovies.length / ITEMS_PER_PAGE)
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
-  const pagedMovies = filteredMovies.slice(startIndex, startIndex + ITEMS_PER_PAGE)
+    const users = JSON.parse(savedUsers)
+    const favs: number[] = users[userEmail]?.favorites ?? []
+    setFavorites(favs)
+  }, [userEmail])
 
   useEffect(() => {
     if (favorites.length === 0) {
@@ -35,9 +41,46 @@ const FavoriteList = () => {
     })
   }, [favorites])
 
+  const filteredMovies = favMoviesDetails.filter((movie) =>
+    movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const ITEMS_PER_PAGE = 5
+
+  const totalPages = Math.ceil(filteredMovies.length / ITEMS_PER_PAGE)
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+  const pagedMovies = filteredMovies.slice(startIndex, startIndex + ITEMS_PER_PAGE)
+
   useEffect(() => {
     setCurrentPage(1)
   }, [searchQuery])
+
+  function toggleFavorite(id: number) {
+    if (!userEmail) return
+
+    const savedUsers = localStorage.getItem('users')
+    if (!savedUsers) return
+
+    const users = JSON.parse(savedUsers)
+
+    const userFavorites: number[] = users[userEmail]?.favorites ?? []
+
+    let newFavorites: number[]
+    if (userFavorites.includes(id)) {
+      newFavorites = userFavorites.filter((favId) => favId !== id)
+    } else {
+      newFavorites = [...userFavorites, id]
+    }
+
+    users[userEmail] = {
+      ...users[userEmail],
+      favorites: newFavorites,
+    }
+
+    localStorage.setItem('users', JSON.stringify(users))
+    setFavorites(newFavorites)
+  }
 
   function handleRemoveFavorite(movieId: number) {
     toggleFavorite(movieId)
@@ -78,8 +121,8 @@ const FavoriteList = () => {
                   onClick={() => handleOpenMovieDetails(movie.id)}
                   role="button"
                   tabIndex={0}
-                  onKeyDown={(keyboardEvent: React.KeyboardEvent<HTMLSpanElement>) =>
-                    keyboardEvent.key === 'Enter' && handleOpenMovieDetails(movie.id)
+                  onKeyDown={(e: React.KeyboardEvent<HTMLSpanElement>) =>
+                    e.key === 'Enter' && handleOpenMovieDetails(movie.id)
                   }
                 >
                   {movie.title}

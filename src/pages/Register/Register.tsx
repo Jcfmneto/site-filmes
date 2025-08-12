@@ -13,12 +13,17 @@ const Register = () => {
       return
     }
 
-    const newUser = {
+    const newUser: {
+      username: string
+      email: string
+      password: string
+      favorites: number[]
+    } = {
       username: data.username,
       email: data.email,
       password: data.password,
+      favorites: [],
     }
-
     const savedUsers = localStorage.getItem('users')
     const users = savedUsers ? JSON.parse(savedUsers) : {}
 
