@@ -29,13 +29,13 @@ const FavoriteButton = ({ id }: FavoriteButtonProps) => {
 
   function handleClick() {
     if (!isLoggedIn) {
-      alert('Você precisa estar logado para favoritar!')
+      alert('You need to be logged in to favorite!')
       return
     }
 
     toggleFavorite()
 
-    alert(favoriteNow ? 'Removido dos favoritos' : 'Adicionado aos favoritos')
+    alert(favoriteNow ? 'Removed from favorites' : 'Added to favorites')
   }
 
   return (
