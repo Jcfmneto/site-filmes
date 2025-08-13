@@ -12,7 +12,7 @@ const FavoriteList = () => {
   const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
-    if (!userEmail) {
+    if (typeof window === 'undefined' || !userEmail) {
       setFavorites([])
       return
     }
