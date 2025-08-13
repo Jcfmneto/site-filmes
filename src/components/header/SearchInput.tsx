@@ -61,7 +61,7 @@ const SearchInput = () => {
       </form>
 
       <ul
-        className={`absolute left-0 right-0 z-10 mt-1 max-h-80 overflow-auto rounded bg-black transition-all ease-in duration-300 ${
+        className={`absolute left-0 right-0 z-100 mt-1 max-h-80 overflow-auto rounded bg-black transition-all ease-in duration-300 ${
           openSearch
             ? 'opacity-100 translate-y-0'
             : 'opacity-0 translate-y-[-20px] pointer-events-none'
