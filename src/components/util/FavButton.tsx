@@ -8,7 +8,7 @@ const FavoriteButton = ({ id }: FavoriteButtonProps) => {
   const savedUsers = localStorage.getItem('users')
   const users = savedUsers ? JSON.parse(savedUsers) : {}
 
-  const favorites: number[] = users[userEmail ?? ''].favorites ?? []
+  const favorites: number[] = (userEmail && users[userEmail]?.favorites) ?? []
 
   const favoriteNow = favorites.includes(id)
 

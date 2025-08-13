@@ -12,7 +12,7 @@ const FavoriteList = () => {
   const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !userEmail) {
+    if (!userEmail) {
       setFavorites([])
       return
     }
@@ -23,11 +23,9 @@ const FavoriteList = () => {
       return
     }
 
-    const users = JSON.parse(savedUsers)
-    const favs: number[] =
-      users != null && users[userEmail] != null && users[userEmail].favorites != null
-        ? users[userEmail].favorites
-        : []
+    const users = savedUsers ? JSON.parse(savedUsers) : {}
+
+    const favs: number[] = users[userEmail].favorites ?? []
     setFavorites(favs)
   }, [userEmail])
 
