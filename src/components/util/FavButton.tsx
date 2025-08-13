@@ -1,19 +1,33 @@
+import { useState, useEffect } from 'react'
 import { BookmarkIcon } from '@heroicons/react/24/outline'
 import useUserStore from '../../store/useUserStore'
+
+interface FavoriteButtonProps {
+  id: number
+}
 
 const FavoriteButton = ({ id }: FavoriteButtonProps) => {
   const isLoggedIn = useUserStore((state) => state.isLoggedIn)
   const userEmail = useUserStore((state) => state.user?.email)
 
-  const savedUsers = localStorage.getItem('users')
-  const users = savedUsers ? JSON.parse(savedUsers) : {}
+  const [favoriteNow, setFavoriteNow] = useState(false)
 
-  const favorites: number[] = (userEmail && users[userEmail]?.favorites) ?? []
+  useEffect(() => {
+    if (!userEmail) return
 
-  const favoriteNow = favorites.includes(id)
+    const savedUsers = localStorage.getItem('users')
+    const users = savedUsers ? JSON.parse(savedUsers) : {}
+    const favorites: number[] = users[userEmail]?.favorites ?? []
+
+    setFavoriteNow(favorites.includes(id))
+  }, [userEmail, id])
 
   function toggleFavorite() {
     if (!userEmail) return
+
+    const savedUsers = localStorage.getItem('users')
+    const users = savedUsers ? JSON.parse(savedUsers) : {}
+    const favorites: number[] = users[userEmail]?.favorites ?? []
 
     const newFavorites = favoriteNow
       ? favorites.filter((favId) => favId !== id)
@@ -25,6 +39,7 @@ const FavoriteButton = ({ id }: FavoriteButtonProps) => {
     }
 
     localStorage.setItem('users', JSON.stringify(users))
+    setFavoriteNow(!favoriteNow)
   }
 
   function handleClick() {
@@ -34,7 +49,6 @@ const FavoriteButton = ({ id }: FavoriteButtonProps) => {
     }
 
     toggleFavorite()
-
     alert(favoriteNow ? 'Removed from favorites' : 'Added to favorites')
   }
 
