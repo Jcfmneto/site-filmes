@@ -24,7 +24,10 @@ const FavoriteList = () => {
     }
 
     const users = JSON.parse(savedUsers)
-    const favs: number[] = (users[userEmail] && users[userEmail].favorites) || []
+    const favs: number[] =
+      users != null && users[userEmail] != null && users[userEmail].favorites != null
+        ? users[userEmail].favorites
+        : []
     setFavorites(favs)
   }, [userEmail])
 
